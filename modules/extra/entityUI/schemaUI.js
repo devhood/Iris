@@ -1336,6 +1336,8 @@ iris.modules.entityUI.registerHook("hook_form_submit__schemafield", 0, function 
   // the field is nested somewhere within the schema tree.
   var savedElement = {};
 
+  // Tree traversal record, add each node to the leaf in here.
+  var treeArray = [];
   // Recursive function
   var recurseFields = function (object, elementParent) {
 
@@ -1391,8 +1393,7 @@ iris.modules.entityUI.registerHook("hook_form_submit__schemafield", 0, function 
   };
 
 
-  // Tree traversal record, add each node to the leaf in here.
-  var treeArray = [];
+  
 
   if (!schema.fields[fieldName]) {
     recurseFields(schema.fields, '');
